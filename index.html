@@ -423,26 +423,24 @@ html {
     .card p + p {
       margin-top: 10px;
     }
+    /* UPDATED: left-aligned green pills */
+.pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;   /* ← changed from center */
+  margin-top: 14px;
+  font-size: 0.85rem;
+}
 
-    /* UPDATED: centered green pills */
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 14px;
-      font-size: 0.85rem;
-    }
-
-    .pill-row span {
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: rgba(19, 111, 99, 0.12);  /* soft accent green */
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      font-weight: 500;
-    }
-
+.pill-row span {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(19, 111, 99, 0.12);  /* soft accent green */
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-weight: 500;
+}
     .skills-grid {
       display: grid;
       gap: 14px;
