@@ -606,7 +606,7 @@
               </div>
               <div>
                 <span class="label">Background</span>
-                <div>BA in Cultural Anthropology (Honors), Louisiana State University :contentReference[oaicite:2]{index=2}</div>
+                <div>BA in Cultural Anthropology (Honors), Louisiana State University 
               </div>
             </div>
             <div class="availability-tag">
