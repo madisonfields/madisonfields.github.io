@@ -245,33 +245,33 @@
       pointer-events: none;
     }
 
-    /* NEW: profile header with headshot + links */
-.profile-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* NEW — keeps headshot aligned left */
-  gap: 14px;
-  margin-bottom: 14px;
-  position: relative;
-  z-index: 1;
-}
+    /* profile header with headshot + links */
+    .profile-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
 
-  .avatar-wrapper {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .avatar-wrapper {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.avatar-photo {
-  width: 72px;
-  height: 72px;
-  border-radius: 999px;          /* perfect circle */
-  object-fit: cover;
-  object-position: 50% 30%;      /* center horizontally, slightly higher vertically */
-  border: 2px solid rgba(248, 250, 252, 0.8);
-  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
-}
+    .avatar-photo {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;          /* perfect circle */
+      object-fit: cover;
+      object-position: 50% 30%;      /* center horizontally, slightly higher vertically */
+      border: 2px solid rgba(248, 250, 252, 0.8);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
+    }
 
     .profile-heading-text {
       display: flex;
@@ -448,15 +448,33 @@
       margin-bottom: 6px;
     }
 
-    .skills-card ul {
+    /* Checkmark-styled lists for Skills section */
+    .styled-list {
       list-style: none;
-      font-size: 0.8rem;
-      color: var(--muted);
       padding-left: 0;
+      margin-top: 10px;
     }
 
-    .skills-card li {
-      margin-bottom: 4px;
+    .styled-list li {
+      position: relative;
+      padding-left: 26px;         /* space for checkmark */
+      margin-bottom: 10px;
+      text-align: justify;
+      text-justify: inter-word;
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 0.85rem;
+    }
+
+    .styled-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
 
     .portfolio-grid {
@@ -761,18 +779,18 @@
         <div class="skills-grid">
           <article class="card skills-card">
             <h3>SEO and AEO strategy</h3>
-            <ul>
-              <li> - End to end SEO strategy for multi client portfolios and individual brands</li>
-              <li> - Technical audits, site health monitoring, and prioritization by impact and effort</li>
-              <li> - Keyword and SERP analysis, including AI Overviews and LLM driven results</li>
-              <li> - On page optimization, internal linking, and crawl efficiency</li>
-              <li> - Local and geo focused visibility for service areas and franchises</li>
+            <ul class="styled-list">
+              <li>End to end SEO strategy for multi client portfolios and individual brands</li>
+              <li>Technical audits, site health monitoring, and prioritization by impact and effort</li>
+              <li>Keyword and SERP analysis, including AI Overviews and LLM driven results</li>
+              <li>On-page optimization, internal linking, and crawl efficiency</li>
+              <li>Local and geo-focused visibility for service areas and franchises</li>
             </ul>
           </article>
 
           <article class="card skills-card">
             <h3>Content and user experience</h3>
-            <ul>
+            <ul class="styled-list">
               <li>Creation and optimization of bottom of funnel service pages at scale</li>
               <li>Content roadmaps that support business goals and sales motions</li>
               <li>Collaboration with UX and design on information architecture and navigation</li>
@@ -783,7 +801,7 @@
 
           <article class="card skills-card">
             <h3>Analytics, tools, and communication</h3>
-            <ul>
+            <ul class="styled-list">
               <li>Google Analytics 4 and Google Search Console for tracking and insight</li>
               <li>Ahrefs, SEMrush, Moz, Screaming Frog, and Looker Studio for research and reporting</li>
               <li>Excel based tracking and performance analysis</li>
@@ -801,10 +819,10 @@
             <span>Moz SEO Essentials</span>
             <span>SEMrush SEO Fundamentals and International SEO</span>
             <span>Ahrefs SEO Training Course</span>
-            <span>Screaing Frog SEO Spider Training</span>
+            <span>Screaming Frog SEO Spider Training</span>
             <span>SurferSEO Content Optimization</span>
             <span>Excel Skills for Business</span>
-            <span>HTML & CSS Basics</span>
+            <span>HTML &amp; CSS Basics</span>
           </div>
         </div>
       </section>
@@ -924,7 +942,7 @@
 
               <div>
                 <label for="email">Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.org" required />
+                <input id="email" name="email" type="email" placeholder="organization@email.org" required />
               </div>
 
               <div>
