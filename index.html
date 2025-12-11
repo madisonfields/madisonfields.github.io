@@ -246,14 +246,15 @@
     }
 
     /* NEW: profile header with headshot + links */
-    .profile-header {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 14px;
-      position: relative;
-      z-index: 1;
-    }
+.profile-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* NEW — keeps headshot aligned left */
+  gap: 14px;
+  margin-bottom: 14px;
+  position: relative;
+  z-index: 1;
+}
 
   .avatar-wrapper {
   flex-shrink: 0;
