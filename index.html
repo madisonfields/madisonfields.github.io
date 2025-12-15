@@ -27,9 +27,11 @@
       --radius-pill: 999px;
       --max-width: 1040px;
     }
-html {
-  scroll-behavior: smooth;
-}
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -268,9 +270,9 @@ html {
     .avatar-photo {
       width: 72px;
       height: 72px;
-      border-radius: 999px;          /* perfect circle */
+      border-radius: 999px;
       object-fit: cover;
-      object-position: 50% 30%;      /* center horizontally, slightly higher vertically */
+      object-position: 50% 30%;
       border: 2px solid rgba(248, 250, 252, 0.8);
       box-shadow: 0 6px 16px rgba(15, 23, 42, 0.35);
     }
@@ -423,24 +425,26 @@ html {
     .card p + p {
       margin-top: 10px;
     }
-    /* UPDATED: left-aligned green pills */
-.pill-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-start;   /* ← changed from center */
-  margin-top: 14px;
-  font-size: 0.85rem;
-}
 
-.pill-row span {
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(19, 111, 99, 0.12);  /* soft accent green */
-  border: 1px solid var(--accent);
-  color: var(--accent);
-  font-weight: 500;
-}
+    /* UPDATED: left-aligned green pills */
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-start;
+      margin-top: 14px;
+      font-size: 0.85rem;
+    }
+
+    .pill-row span {
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(19, 111, 99, 0.12);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-weight: 500;
+    }
+
     .skills-grid {
       display: grid;
       gap: 14px;
@@ -461,7 +465,7 @@ html {
 
     .styled-list li {
       position: relative;
-      padding-left: 26px;         /* space for checkmark */
+      padding-left: 26px;
       margin-bottom: 10px;
       text-align: justify;
       text-justify: inter-word;
@@ -502,6 +506,65 @@ html {
       font-size: 0.8rem;
       color: var(--muted);
     }
+
+    /* --- NEW: Recommendations --- */
+    .recommendation-wrapper {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .recommendation-card {
+      display: none;
+      background: var(--bg-alt);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--border);
+      padding: 22px 22px 24px;
+      box-shadow: 0 16px 30px rgba(15, 23, 42, 0.03);
+    }
+
+    .recommendation-card.active {
+      display: block;
+    }
+
+    .recommendation-text {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 14px;
+      line-height: 1.55;
+    }
+
+    .recommendation-author strong {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .recommendation-author span {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .recommendation-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .recommendation-dots .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(19, 111, 99, 0.3);
+      cursor: pointer;
+    }
+
+    .recommendation-dots .dot.active {
+      background: var(--accent);
+    }
+    /* --- END NEW --- */
 
     .services-grid {
       display: grid;
@@ -877,6 +940,64 @@ html {
         </div>
       </section>
 
+      <!-- NEW: RECOMMENDATIONS (inserted between Work and Services) -->
+      <section id="recommendations">
+        <div class="section-header">
+          <div>
+            <div class="section-kicker">Recommendations</div>
+            <h2 class="section-title">What it’s like to work with me</h2>
+          </div>
+          <p class="section-subtitle">
+            Feedback from managers and teammates I’ve worked closely with.
+          </p>
+        </div>
+
+        <div class="recommendation-wrapper">
+          <div class="recommendation-card active">
+            <p class="recommendation-text">
+              “Madison produced excellent SEO work. Being fully remote, she communicated
+              clearly, shared ideas, and consistently solved problems creatively.
+              I strongly recommend Madison for any SEO role where she can let her creativity flow.”
+            </p>
+            <div class="recommendation-author">
+              <strong>Stephen Bess</strong>
+              <span>Multi Location Marketer · Direct Manager</span>
+            </div>
+          </div>
+
+          <div class="recommendation-card">
+            <p class="recommendation-text">
+              “Madison is sharp as a tack and full of fresh ideas. Her creative solutions
+              consistently led to tangible improvements and better results.
+              She would be a valuable asset to any organization.”
+            </p>
+            <div class="recommendation-author">
+              <strong>Kainen Thomas</strong>
+              <span>SEO Strategist · Teammate</span>
+            </div>
+          </div>
+
+          <div class="recommendation-card">
+            <p class="recommendation-text">
+              “Collaborative, proactive, and always willing to help.
+              Even with minimal direction, Madison took initiative and got things done.
+              Her positive attitude made her a joy to work with.”
+            </p>
+            <div class="recommendation-author">
+              <strong>Alex Stage</strong>
+              <span>SEO Strategist & Leader · Direct Manager</span>
+            </div>
+          </div>
+
+          <div class="recommendation-dots" aria-label="Recommendation navigation">
+            <button class="dot active" aria-label="Show recommendation 1"></button>
+            <button class="dot" aria-label="Show recommendation 2"></button>
+            <button class="dot" aria-label="Show recommendation 3"></button>
+          </div>
+        </div>
+      </section>
+      <!-- END NEW -->
+
       <!-- SERVICES -->
       <section id="services">
         <div class="section-header">
@@ -974,13 +1095,13 @@ html {
 
           <aside class="card" style="font-size: 0.85rem;">
             <p><strong>Contact Details</strong></p>
-           <p style="margin-top: 6px;">
-  <strong>Email:</strong> <a href="mailto:fieldsmadison.e@gmail.com">fieldsmadison.e@gmail.com</a><br />
-  <strong>Phone:</strong> <a href="tel:+12256208501">+1 225 620 8501</a><br />
-  <strong>LinkedIn:</strong>
-  <a href="https://www.linkedin.com/in/madison-fields-/" target="_blank" rel="noreferrer">
-    linkedin.com/in/madison-fields-/
-  </a>
+            <p style="margin-top: 6px;">
+              <strong>Email:</strong> <a href="mailto:fieldsmadison.e@gmail.com">fieldsmadison.e@gmail.com</a><br />
+              <strong>Phone:</strong> <a href="tel:+12256208501">+1 225 620 8501</a><br />
+              <strong>LinkedIn:</strong>
+              <a href="https://www.linkedin.com/in/madison-fields-/" target="_blank" rel="noreferrer">
+                linkedin.com/in/madison-fields-/
+              </a>
             </p>
             <p style="margin-top: 10px;">
               I am happy to connect about:
@@ -1004,6 +1125,33 @@ html {
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // NEW: Recommendations rotation
+    (function () {
+      const cards = document.querySelectorAll(".recommendation-card");
+      const dots = document.querySelectorAll(".recommendation-dots .dot");
+      if (!cards.length || !dots.length) return;
+
+      let current = 0;
+
+      function showRecommendation(index) {
+        cards.forEach((card, i) => {
+          card.classList.toggle("active", i === index);
+          dots[i].classList.toggle("active", i === index);
+        });
+        current = index;
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener("click", () => showRecommendation(i));
+      });
+
+      setInterval(() => {
+        const next = (current + 1) % cards.length;
+        showRecommendation(next);
+      }, 7000);
+    })();
   </script>
 </body>
 </html>
+
