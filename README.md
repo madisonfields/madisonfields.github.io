@@ -569,7 +569,7 @@
           </h1>
           <p class="hero-subtitle">
             I help B2B, franchise, and mission driven teams grow qualified organic traffic across search and emerging answer
-            engines. My work combines technical SEO, AEO, and content strategy with a research background in cultural
+            engines. My work combines technical SEO, GEO, AEO, and content strategy with a research background in cultural
             anthropology.
           </p>
           <div class="hero-highlight">
@@ -638,7 +638,7 @@
         <div class="about-grid">
           <article class="card">
             <p>
-              I am an SEO and AEO consultant and SEO and Content Manager with more than five years of experience in digital
+              I am an SEO and GEO consultant and SEO and Content Manager with more than five years of experience in digital
               marketing. I have led strategy for agency portfolios, franchise brands, and B2B software companies, with a focus
               on sustainable, measurable growth rather than short term hacks.
             </p>
@@ -879,7 +879,7 @@
               I am happy to connect about:
             </p>
             <ul style="margin-top: 6px; padding-left: 18px;">
-              <li>SEO, AEO, and organic growth roles</li>
+              <li>SEO, GEO, AEO and organic growth roles</li>
               <li>Consulting or project based work</li>
               <li>Agency collaborations</li>
               <li>Nonprofit and community focused initiatives</li>
