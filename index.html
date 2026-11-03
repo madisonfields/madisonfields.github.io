@@ -10,13 +10,13 @@
 <meta property="og:description" content="I get B2B brands ranked on Google and cited by name in AI Overviews and ChatGPT.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://madisonfields.github.io/">
-<meta property="og:image" content="https://madisonfields.github.io/madison.webp">
+<meta property="og:image" content="https://madisonfields.github.io/madison-portrait.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z' fill='%23FFE88A' stroke='%231B1F3B'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Madison Fields","jobTitle":"Senior SEO & AI Search Strategist","url":"https://madisonfields.github.io/","image":"https://madisonfields.github.io/madison.webp","email":"mailto:fieldsagency.nl@gmail.com","sameAs":["https://www.linkedin.com/in/madison-fields-/"],"address":{"@type":"PostalAddress","addressCountry":"NL"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Louisiana State University"},"knowsAbout":["Search engine optimization","Generative engine optimization","Answer engine optimization","AI Overviews","Structured data","Technical SEO","Content strategy"]}
+{"@context":"https://schema.org","@type":"Person","name":"Madison Fields","jobTitle":"Senior SEO & AI Search Strategist","url":"https://madisonfields.github.io/","image":"https://madisonfields.github.io/madison-portrait.webp","email":"mailto:fieldsagency.nl@gmail.com","sameAs":["https://www.linkedin.com/in/madison-fields-/"],"address":{"@type":"PostalAddress","addressCountry":"NL"},"alumniOf":{"@type":"CollegeOrUniversity","name":"Louisiana State University"},"knowsAbout":["Search engine optimization","Generative engine optimization","Answer engine optimization","AI Overviews","Structured data","Technical SEO","Content strategy"]}
 </script>
 <style>
 :root{
@@ -245,10 +245,10 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
 }
 </style>
 </head>
-<body>
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="nav" id="top">
+<header class="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Madison Fields, home">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#FFE88A" stroke="#1B1F3B" stroke-width="1.2"/></svg>
@@ -293,7 +293,7 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
       <div class="portrait">
         <div class="stage">
           <div class="arch-line" aria-hidden="true"></div>
-          <div class="arch"><img src="madison.webp" alt="Madison Fields smiling, holding a coffee mug" width="1320" height="1292"></div>
+          <div class="arch"><img src="madison-portrait.webp" alt="Madison Fields smiling, holding a coffee mug" width="1320" height="1292"></div>
         </div>
         <div class="status"><i aria-hidden="true"></i>Open to new roles</div>
       </div>
@@ -532,6 +532,11 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
   var nav = document.querySelector('.nav');
   addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
   document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelector('.brand').addEventListener('click', function(e){
+    e.preventDefault();
+    window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+    history.replaceState(null, '', location.pathname);
+  });
 
   // Hero: ask the engine
   var qa = [
