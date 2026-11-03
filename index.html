@@ -245,10 +245,10 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
 }
 </style>
 </head>
-<body id="top">
+<body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="nav">
+<header class="nav" id="top">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Madison Fields, home">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#FFE88A" stroke="#1B1F3B" stroke-width="1.2"/></svg>
@@ -532,11 +532,6 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
   var nav = document.querySelector('.nav');
   addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
   document.getElementById('yr').textContent = new Date().getFullYear();
-  document.querySelector('.brand').addEventListener('click', function(e){
-    e.preventDefault();
-    window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
-    history.replaceState(null, '', location.pathname);
-  });
 
   // Hero: ask the engine
   var qa = [
