@@ -70,6 +70,24 @@ section{padding:120px 0}
 .answer-body{font-size:clamp(21px,2.2vw,28px);line-height:1.38;margin-top:22px;max-width:780px;min-height:4.2em}
 .cite{display:inline-block;margin-left:8px;background:var(--butter);font-size:14px;font-weight:800;border-radius:8px;padding:3px 9px;vertical-align:5px;text-decoration:none;animation:pop .45s ease-out both}
 @keyframes pop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.12)}100%{transform:none;opacity:1}}
+.search{background:#fff;border:1.5px solid rgba(27,31,59,.1);border-radius:30px;max-width:700px;box-shadow:0 10px 30px rgba(91,99,214,.12);overflow:hidden}
+.search-bar{width:100%;display:flex;align-items:center;gap:14px;padding:14px 16px 14px 26px;min-height:62px;background:transparent;border:0;font:inherit;font-size:20px;color:var(--ink);text-align:left;cursor:text}
+.search-text{flex-grow:1;min-width:0}
+.ph{color:#7A7F9E}
+.ask-btn{display:flex;align-items:center;gap:6px;font-size:15px;font-weight:700;border-radius:999px;padding:9px 14px;white-space:nowrap;background:#F1F2FD;color:var(--ink-2);cursor:pointer}
+.ask-btn svg{transform:rotate(180deg);transition:transform .2s}
+.closed .ask-btn{background:var(--ink);color:#fff}
+.closed .ask-btn svg{transform:none}
+.sugg{border-top:1px solid rgba(27,31,59,.08);padding:6px 10px 12px;animation:drop .25s ease-out both}
+.closed .sugg{display:none}
+@keyframes drop{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.sugg-label{margin:8px 16px 4px;font-size:13px;font-weight:700;color:var(--violet)}
+.s{width:100%;display:flex;align-items:center;gap:14px;padding:12px 16px;min-height:48px;border:0;border-radius:14px;background:transparent;font:inherit;font-size:18px;color:var(--ink);text-align:left;cursor:pointer}
+.s span{flex-grow:1}
+.s:hover,.s:focus-visible{background:#F1F2FD}
+.s .go{opacity:.35;transform:translateX(-4px);transition:all .15s}
+.s:hover .go,.s:focus-visible .go{opacity:1;transform:none}
+.answer-title{margin-top:36px}
 .chips{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:36px}
 .chips .label{font-size:16px;color:var(--ink-2);margin-right:4px}
 .chip{font:inherit;font-size:16px;font-weight:650;cursor:pointer;border-radius:999px;padding:11px 18px;min-height:44px;background:rgba(255,255,255,.7);color:var(--ink);border:1.5px solid rgba(27,31,59,.18)}
@@ -83,11 +101,11 @@ section{padding:120px 0}
 .portrait-col{display:flex;flex-direction:column;align-items:center}
 .tags{justify-content:center;max-width:460px}
 .portrait img{position:absolute;left:0;bottom:0;width:440px;height:auto}
-.status{position:absolute;right:-32px;top:170px;display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:11px 16px;font-size:15px;font-weight:700;box-shadow:0 14px 34px rgba(27,31,59,.14);animation:pop .5s .4s ease-out both}
+.status{position:absolute;right:-48px;top:380px;display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:11px 16px;font-size:15px;font-weight:700;box-shadow:0 14px 34px rgba(27,31,59,.14);animation:pop .5s .4s ease-out both}
 .status i{width:10px;height:10px;border-radius:50%;background:#2EA06E;animation:pulse 1.8s ease-out infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,160,110,.5)}100%{box-shadow:0 0 0 10px rgba(46,160,110,0)}}
 .tags{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;font-weight:650;margin-top:20px}
-.tags span{border-radius:999px;padding:8px 13px;background:rgba(255,255,255,.75);border:1px solid rgba(27,31,59,.1)}
+.tags span{border-radius:999px;padding:8px 13px}
 
 /* proof band */
 .proof{background:var(--ink);color:#fff;padding:72px 0}
@@ -194,7 +212,7 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
   .arch{top:54px;left:24px;right:24px}
   .portrait .arch img{left:-24px;width:300px}
   .portrait img{width:300px}
-  .status{top:2px;right:-18px}
+  .status{top:236px;right:-30px;font-size:13px;padding:8px 12px;gap:8px}
   .tags{justify-content:center}
   .proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .case{grid-template-columns:1fr;padding:32px}
@@ -209,7 +227,8 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
   .wrap{padding:0 16px}
   section{padding:80px 0}
   .nav ul{gap:16px}
-  .ask{font-size:16px;padding:14px 18px}
+  .search-bar{font-size:16px;padding:12px 12px 12px 18px}
+  .s{font-size:16px}
   .proof-grid,.built-grid,.results-list{grid-template-columns:1fr}
   .thing.wide{grid-column:auto}
   .steps{grid-template-columns:1fr}
@@ -251,20 +270,23 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
 <section class="hero" aria-label="Introduction">
   <div class="wrap hero-grid">
     <div>
-      <div class="ask" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFE3EC" stroke="#5B63D6" stroke-width="2"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
-        <span><span id="q"></span><span class="caret"></span></span>
+      <div class="search">
+        <button class="search-bar" id="bar" aria-expanded="true" aria-controls="sugg">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#FFE3EC" stroke="#5B63D6" stroke-width="2" aria-hidden="true"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg>
+          <span class="search-text"><span id="q" class="ph">Ask me anything</span><span class="caret"></span></span>
+          <span class="ask-btn" id="askbtn">Close<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span>
+        </button>
+        <div class="sugg" id="sugg">
+          <p class="sugg-label">Try asking</p>
+          <button class="s" data-i="0"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7A7F9E" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Who should own our AI search strategy?</span><svg class="go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B63D6" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="s" data-i="1"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7A7F9E" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>What results have you actually driven?</span><svg class="go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B63D6" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="s" data-i="2"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7A7F9E" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>What do you actually bring to a team?</span><svg class="go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B63D6" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <button class="s" data-i="3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7A7F9E" stroke-width="2.2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Why does an anthropologist do SEO?</span><svg class="go" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5B63D6" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
       </div>
       <div aria-live="polite">
         <h1 class="answer-title" id="t"><span>Hi, I’m Madison.</span></h1>
         <p class="answer-body" id="b">I’m a senior SEO and AI search strategist. I get B2B brands ranked on Google and cited by name in AI Overviews and ChatGPT.</p>
-      </div>
-      <div class="chips" role="group" aria-label="Ask me something">
-        <span class="label">Ask another</span>
-        <button class="chip" data-i="0" aria-pressed="true">Who should own AI search?</button>
-        <button class="chip" data-i="1" aria-pressed="false">What results?</button>
-        <button class="chip" data-i="2" aria-pressed="false">What do you bring?</button>
-        <button class="chip" data-i="3" aria-pressed="false">Why anthropology?</button>
       </div>
     </div>
     <div class="portrait-col">
@@ -276,12 +298,12 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
         <div class="status"><i aria-hidden="true"></i>Open to new roles</div>
       </div>
       <div class="tags" aria-label="Industries">
-        <span>B2B SaaS</span>
-        <span>Enterprise software</span>
-        <span>Healthcare</span>
-        <span>Edtech</span>
-        <span>IoT</span>
-        <span>Franchise and local</span>
+        <span style="background:var(--blush)">B2B SaaS</span>
+        <span style="background:var(--mint)">Enterprise software</span>
+        <span style="background:var(--butter)">Healthcare</span>
+        <span style="background:var(--lilac)">Edtech</span>
+        <span style="background:var(--sky)">IoT</span>
+        <span style="background:var(--peach)">Franchise and local</span>
       </div>
     </div>
   </div>
@@ -519,25 +541,31 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
     {q:'Why does an anthropologist do SEO?', t:'Search is behavior.', b:'I trained as a cultural anthropologist, so I study how people really ask questions. Then I structure content so search engines and LLMs choose it.', c:'about', h:'#experience'}
   ];
   var qEl = document.getElementById('q'), tEl = document.getElementById('t'), bEl = document.getElementById('b');
-  var chips = document.querySelectorAll('.chip');
-  var timer;
+  var search = document.querySelector('.search'), bar = document.getElementById('bar'), askbtn = document.getElementById('askbtn');
+  var current = -1, timer;
+  function setOpen(open){
+    search.classList.toggle('closed', !open);
+    bar.setAttribute('aria-expanded', open);
+    askbtn.firstChild.textContent = open ? 'Close' : 'Ask another';
+    if (open){ qEl.textContent = 'Ask me anything'; qEl.className = 'ph'; }
+    else if (current >= 0){ qEl.textContent = qa[current].q; qEl.className = ''; }
+  }
+  bar.addEventListener('click', function(){ setOpen(search.classList.contains('closed')); });
   function citeHTML(item){ return ' <a class="cite" href="'+item.h+'">'+item.c+'</a>'; }
   function run(i){
-    clearInterval(timer);
-    chips.forEach(function(c){ c.setAttribute('aria-pressed', c.dataset.i == i ? 'true' : 'false'); });
-    var item = qa[i];
+    clearInterval(timer); current = i; setOpen(false);
+    var item = qa[i]; qEl.className = '';
     if (reduce){ qEl.textContent = item.q; tEl.innerHTML = '<span>'+item.t+'</span>'; bEl.innerHTML = item.b + citeHTML(item); return; }
     var words = item.b.split(' '), typed = 0, w = 0, phase = 0, wait = 0;
     qEl.textContent = ''; tEl.innerHTML = '&nbsp;'; bEl.textContent = '';
     timer = setInterval(function(){
       if (phase === 0){ typed++; qEl.textContent = item.q.slice(0, typed); if (typed >= item.q.length) phase = 1; }
-      else if (phase === 1){ if (++wait > 12){ tEl.innerHTML = '<span>'+item.t+'</span>'; phase = 2; wait = 0; } }
-      else if (phase === 2){ if (++wait > 14) phase = 3; }
+      else if (phase === 1){ if (++wait > 10){ tEl.innerHTML = '<span>'+item.t+'</span>'; phase = 2; wait = 0; } }
+      else if (phase === 2){ if (++wait > 12) phase = 3; }
       else { w++; bEl.textContent = words.slice(0, w).join(' '); if (w >= words.length){ bEl.innerHTML = item.b + citeHTML(item); clearInterval(timer); } }
-    }, 34);
+    }, 32);
   }
-  chips.forEach(function(c){ c.addEventListener('click', function(){ run(+c.dataset.i); }); });
-  run(0);
+  document.querySelectorAll('.s').forEach(function(b){ b.addEventListener('click', function(){ run(+b.dataset.i); }); });
 
   // Count-up once, when the proof band appears
   var counted = false, band = document.querySelector('.proof');
