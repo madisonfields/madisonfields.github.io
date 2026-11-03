@@ -121,6 +121,7 @@ section{padding:120px 0}
 .tablist{display:flex;gap:10px;flex-wrap:wrap;margin-top:40px}
 .tab{font:inherit;font-weight:700;font-size:16px;cursor:pointer;border-radius:999px;padding:12px 20px;min-height:48px;border:1.5px solid var(--line);background:#fff;color:var(--ink);display:flex;align-items:center;gap:10px}
 .tab i{width:12px;height:12px;border-radius:50%}
+.tab .short{display:none}
 .tab[aria-selected="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
 .case{margin-top:24px;border-radius:32px;padding:48px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:48px}
 .case[hidden]{display:none}
@@ -205,15 +206,16 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
 
 /* responsive */
 @media (max-width:1080px){
-  .hero-grid{grid-template-columns:1fr}
+  .hero-grid{grid-template-columns:1fr;gap:32px}
   .portrait-col{order:-1;display:flex;flex-direction:column;align-items:center}
-  .portrait{width:300px;height:354px}
-  .arch-line{top:40px;left:10px;right:10px}
-  .arch{top:54px;left:24px;right:24px}
-  .portrait .arch img{left:-24px;width:300px}
-  .portrait img{width:300px}
-  .status{top:262px;right:-30px;font-size:13px;padding:11px 14px;gap:8px}
-  .tags{justify-content:center}
+  .hero{padding:20px 0 56px}
+  .portrait{width:300px;height:330px}
+  .arch-line{top:14px;left:10px;right:10px}
+  .arch{top:28px;left:24px;right:24px}
+  .portrait .arch img{left:-56px;bottom:-68px;width:379px}
+  .portrait img{width:379px}
+  .status{top:auto;bottom:-20px;left:0;right:0;margin:0 auto;width:max-content;font-size:14px;padding:11px 16px;gap:8px}
+  .tags{justify-content:center;margin-top:40px}
   .proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .case{grid-template-columns:1fr;padding:32px}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:36px}
@@ -226,7 +228,14 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
   .brand{font-size:17px}
   .wrap{padding:0 16px}
   section{padding:80px 0}
-  .nav ul{gap:16px}
+  .nav ul{gap:14px}
+  .nav ul a{font-size:15px}
+  .nav .btn{padding:9px 16px;min-height:40px;font-size:14px}
+  .tablist{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:4px}
+  .tab{justify-content:center;gap:7px;padding:10px 6px;min-height:44px;font-size:15px;border:0}
+  .tab i{width:9px;height:9px}
+  .tab .long{display:none}
+  .tab .short{display:inline}
   .search-bar{font-size:16px;padding:12px 12px 12px 18px}
   .s{font-size:16px}
   .proof-grid,.built-grid,.results-list{grid-template-columns:1fr}
@@ -235,7 +244,6 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
   .case{padding:22px;border-radius:24px}
   .panel{padding:20px}
   .quote{width:300px}
-  .status{right:-10px}
   .stat{min-height:0}
 }
 @media (prefers-reduced-motion:reduce){
@@ -326,9 +334,9 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
     <h2 id="results-h">Results</h2>
     <p class="lede">Three accounts I work on today. Client names are left out. Every number comes from their quarterly business reviews.</p>
     <div class="tablist" role="tablist" aria-label="Case studies">
-      <button class="tab" role="tab" id="tab-a" aria-controls="case-a" aria-selected="true"><i style="background:var(--lilac-2)"></i>K-12 edtech</button>
-      <button class="tab" role="tab" id="tab-b" aria-controls="case-b" aria-selected="false" tabindex="-1"><i style="background:#8FE0B6"></i>Industrial IoT software</button>
-      <button class="tab" role="tab" id="tab-c" aria-controls="case-c" aria-selected="false" tabindex="-1"><i style="background:#F2CF45"></i>Dental benefits</button>
+      <button class="tab" role="tab" id="tab-a" aria-controls="case-a" aria-selected="true"><i style="background:var(--lilac-2)"></i><span class="long">K-12 edtech</span><span class="short">Edtech</span></button>
+      <button class="tab" role="tab" id="tab-b" aria-controls="case-b" aria-selected="false" tabindex="-1"><i style="background:#8FE0B6"></i><span class="long">Industrial IoT software</span><span class="short">IoT</span></button>
+      <button class="tab" role="tab" id="tab-c" aria-controls="case-c" aria-selected="false" tabindex="-1"><i style="background:#F2CF45"></i><span class="long">Dental benefits</span><span class="short">Dental</span></button>
     </div>
 
     <article class="case" id="case-a" role="tabpanel" aria-labelledby="tab-a" style="background:var(--lilac)">
