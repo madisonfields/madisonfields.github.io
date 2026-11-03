@@ -101,7 +101,7 @@ section{padding:120px 0}
 .portrait-col{display:flex;flex-direction:column;align-items:center}
 .tags{justify-content:center;max-width:460px}
 .portrait img{position:absolute;left:0;bottom:0;width:440px;height:auto}
-.status{position:absolute;right:-48px;top:380px;display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:11px 16px;font-size:15px;font-weight:700;box-shadow:0 14px 34px rgba(27,31,59,.14);animation:pop .5s .4s ease-out both}
+.status{position:absolute;right:-40px;top:396px;display:flex;align-items:center;gap:10px;background:#fff;border-radius:999px;padding:14px 18px;font-size:15px;font-weight:700;box-shadow:0 14px 34px rgba(27,31,59,.14);animation:pop .5s .4s ease-out both}
 .status i{width:10px;height:10px;border-radius:50%;background:#2EA06E;animation:pulse 1.8s ease-out infinite}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,160,110,.5)}100%{box-shadow:0 0 0 10px rgba(46,160,110,0)}}
 .tags{display:flex;flex-wrap:wrap;gap:8px;font-size:14px;font-weight:650;margin-top:20px}
@@ -212,7 +212,7 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
   .arch{top:54px;left:24px;right:24px}
   .portrait .arch img{left:-24px;width:300px}
   .portrait img{width:300px}
-  .status{top:236px;right:-30px;font-size:13px;padding:8px 12px;gap:8px}
+  .status{top:262px;right:-30px;font-size:13px;padding:11px 14px;gap:8px}
   .tags{justify-content:center}
   .proof-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .case{grid-template-columns:1fr;padding:32px}
@@ -245,10 +245,10 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
 }
 </style>
 </head>
-<body>
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="nav" id="top">
+<header class="nav">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="Madison Fields, home">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="#FFE88A" stroke="#1B1F3B" stroke-width="1.2"/></svg>
@@ -532,6 +532,11 @@ footer .wrap{border-top:1px solid rgba(255,255,255,.14);padding-top:28px;display
   var nav = document.querySelector('.nav');
   addEventListener('scroll', function(){ nav.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
   document.getElementById('yr').textContent = new Date().getFullYear();
+  document.querySelector('.brand').addEventListener('click', function(e){
+    e.preventDefault();
+    window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+    history.replaceState(null, '', location.pathname);
+  });
 
   // Hero: ask the engine
   var qa = [
